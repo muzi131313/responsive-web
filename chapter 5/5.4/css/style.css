@@ -1,0 +1,11 @@
+.grid{
+  width:25%;
+  height:0px;
+  padding-left:1.5678%;
+  padding-right:1.5678%;
+  margin-left:1.5678%;
+  margin-right:1.5678%;
+  padding-bottom:25%; /* See the developers insight above  */
+  float:left;
+  outline:5px solid red; /* so the grid is visible */
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/yepnope/1.5.4/yepnope.min.js"></script>
+
+    <script type="text/javascript">
+      var hours = function(){
+        var current = new Date(); 
+        current = current.getHours();
+        return current;
+      }
+
+      var context = {
+        morning: function(x){
+          return !!(x > 4 && x < 12);
+        },
+        afternoon: function(x){
+          return !!(x >= 12 && x < 18);
+        },
+        evening: function(x){
+          return !!(x >= 18 && x < 24 || x > 0 && x <= 4);
+        },
+      };
+
+      for (x in context) {
+        yepnope([{
+          test:  context[x](hours()),
+          yep: "contexts/" + x + ".js",
+          complete: function(){
+          }
+        }]);
+
+        if(context[x](hours())){
+          var html = document.documentElement;
+          html.className += "is-" + x;
+        };
+      }
+
+
+    </script>
+
+    <style type="text/css">
+      .is-morning h1#message{
+        text-align: center;
+        color:#c18230;
+        background-color: #4a2b03;
+      }
+
+      .is-evening h1#message{
+        text-align: center;
+        color:#4e63cb;
+        background-color: #152058;
+      }
+
+      .is-afternoon h1#message{
+        text-align: center;
+        color:#e04f28;
+        background-color: #802209;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <h1 id="message">sample message</h1>
+ 
+  </body>
+</html>

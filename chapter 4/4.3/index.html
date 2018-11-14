@@ -1,0 +1,112 @@
+<html>
+<head>
+  <title></title>
+  <!-- including jquery -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <style type="text/css">
+    * {                 
+        text-transform: uppercase; 
+        font-family: Helvetica; 
+        text-align: center;
+    }
+    header, nav, ul, li {             
+        width:100%;
+    }   
+    ul {                  
+        list-style: none; 
+        margin:0; 
+        padding:0; 
+        float:left; 
+    }
+    li {                
+        border-bottom: 1px solid #2e3034; 
+        margin:0; 
+        padding:20px 0; 
+        float:left; 
+    }
+
+    .l-half {               
+        width:50%; 
+        float:left; 
+        padding: 20px 0;
+    }
+    .grey {               
+        background:#2e3034; 
+        color:#fff;
+    }
+    .light-grey{                
+        background:#e4e4e4; 
+        color:#2e3034; 
+        outline:1px solid #2e3034;
+    }
+
+    nav {               
+        height:1px; 
+        overflow: hidden; 
+        width:100%; 
+        outline:1px solid #2e3034; 
+        -webkit-transition: height 1s;                          
+    }
+    nav.is-expanded {
+        height:235px;                                     
+    }
+
+  @media(min-width:700px){
+      #logo {
+          width:200px;
+      }
+      #menu {
+          display: none;
+      }
+      nav, nav.is-expanded {
+          height:60px;
+          width:500px; 
+          float: right;
+      }
+      ul {
+          width: 500px;
+      }
+      li{
+          width:25%;
+      }
+      article {
+          float:left;
+      }
+  }
+  </style>
+</head>
+<body>
+<header>
+  <div id="logo" class="l-half grey">Logo</div>
+  <div id="menu" class="l-half light-grey">Menu</div>             
+</header>
+<nav id="nav">                                                          
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Products</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+<article>
+  <h2>Headline</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</article>
+<script type="text/javascript">
+  $('#menu').click(function(){
+    $('nav').toggleClass('is-expanded');
+  });
+
+  $('.has-subnav a').click(function(){
+    $(this).parent().toggleClass('is-expanded');
+    $('nav').toggleClass('is-subnav-expanded');
+  });
+</script>
+</body>
+</html>

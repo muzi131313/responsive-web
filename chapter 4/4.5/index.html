@@ -1,0 +1,100 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  
+  
+  <style type="text/css">
+    * {                 
+        text-transform: uppercase; 
+        font-family: Helvetica; 
+        text-align: center;
+    }
+    header, nav, ul, li {             
+        width:100%;
+    }   
+    ul {                  
+        list-style: none; 
+        margin:0; 
+        padding:0; 
+        float:left; 
+    }
+    li {                
+        border-bottom: 1px solid #2e3034; 
+        margin:0; 
+        padding:20px 0; 
+        float:left; 
+    }
+
+    .l-half {               
+        width:50%; 
+        float:left; 
+        padding: 20px 0;
+    }
+    .grey {               
+        background:#2e3034; 
+        color:#fff;
+    }
+    .light-grey{                
+        background:#e4e4e4; 
+        color:#2e3034; 
+        outline:1px solid #2e3034;
+    }
+
+    nav {               
+        height:1px; 
+        overflow: hidden; 
+        width:100%; 
+        outline:1px solid #2e3034; 
+        -webkit-transition: height 1s;                          
+    }
+    nav.is-expanded {
+        height:235px;                                     
+    }
+
+  @media(min-width:700px){
+      #logo {
+          width:200px;
+      }
+      #menu {
+          display: none;
+      }
+      nav, nav.is-expanded {
+          height:60px;
+          width:500px; 
+          float: right;
+      }
+      ul {
+          width: 500px;
+      }
+      li{
+          width:25%;
+      }
+      article {
+          float:left;
+      }
+  }
+  </style>
+</head>
+<body>
+<header>
+  <div id="logo" class="l-half grey">Logo</div>
+  <select id="menu">
+    <option value="">Menu</option>
+    <option value="/home">Home</option>
+    <option value="/about">About</option>
+    <option value="/practice">Products</option>
+    <option value="/contact">Contact</option>
+  </select>
+</header>
+
+
+
+<script type="text/javascript">
+  $("#menu").change(function onChange() {
+    window.location = $(this).find("option:selected").val();
+  });
+
+</script>
+</body>
+</html>

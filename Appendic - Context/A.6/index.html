@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/yepnope/1.5.4/yepnope.min.js"></script>
+
+
+    <style type="text/css">
+      .is-morning h1#message{
+        text-align: center;
+        color:#c18230;
+        background-color: #4a2b03;
+      }
+
+      .is-evening h1#message{
+        text-align: center;
+        color:#4e63cb;
+        background-color: #152058;
+      }
+
+      .is-afternoon h1#message{
+        text-align: center;
+        color:#e04f28;
+        background-color: #802209;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1 id="message"></h1>
+  </body>
+  
+  <script type="text/javascript">
+    var sensors = {
+  morning: function(){
+      var x = new Date(); 
+    x = x.getHours()
+    return !!(x > 4 && x < 12);
+  },
+  afternoon: function(){
+      var x = new Date(); 
+    x = x.getHours()
+    return !!(x >= 12 && x < 18);
+  },
+  evening: function(){
+      var x = new Date(); 
+    x = x.getHours()
+    return !!(x >= 18 && x < 24 || x > 0 && x <= 4);
+  },
+};
+
+for (var x in sensors) {
+  console.log(sensors[x]());
+}
+
+    for (x in sensors) {
+      yepnope([{
+        test:  sensors[x](),
+        yep: "sensors/" + x + ".js",
+        complete: function(){
+          console.log(message);
+        }
+      }]);
+
+      if(sensors[x]()){
+        var html = document.documentElement;
+        html.className += "is-" + x;
+      };
+    }
+
+
+  </script>
+</html>

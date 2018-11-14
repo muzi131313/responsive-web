@@ -1,0 +1,128 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  
+  
+  <style type="text/css">
+  *{
+  text-transform: uppercase; 
+  font-family: Helvetica; 
+  text-align: center;
+  }
+
+  header, nav{width:100%;}
+
+  ul{
+    list-style: none; 
+    margin:0; 
+    padding:0; 
+    float:left; 
+    width:100%;
+  }
+
+
+
+  ul.subnav{
+    height:0px;
+    overflow:hidden;
+  }
+
+  li.is-expanded ul.subnav{
+    height:236px;
+  }
+
+  ul.subnav li a{
+    background:#e4e4e4;
+  }
+
+  li a{
+    border-bottom: 1px solid #2e3034;
+    margin:0;
+    padding:20px 0;
+    float:left;
+    width:100%;
+  }
+
+  .l-half{
+    width:50%; 
+    float:left; 
+    padding: 20px 0;
+  }
+
+  .grey{
+     background:#2e3034; 
+     color:#fff;
+  }
+
+  .light-grey{
+    background:#e4e4e4; 
+    color:#2e3034; 
+    outline:1px solid #2e3034;
+  }
+
+  nav{
+      height:1px; 
+      overflow: hidden; 
+      width:100%; 
+      outline:1px solid #2e3034; 
+      -webkit-transition: height 1s;
+  } 
+    
+  nav.is-expanded{height:235px;} 
+  nav.is-expanded.is-subnav-expanded{
+    height:470px;
+  }
+  </style>
+</head>
+<body>
+<header>
+  <div id="logo" class="l-half grey">Logo</div>
+  <div id="menu" class="l-half light-grey">Menu</div>
+</header>
+<nav>
+  <ul>
+    <li class="has-subnav">
+      <a href="#">Home</a>
+      <ul class="subnav">
+        <li><a href="#">sub-nav link</a></li>
+        <li><a href="#">sub-nav link</a></li>
+        <li><a href="#">sub-nav link</a></li>
+        <li><a href="#">sub-nav link</a></li>
+    </ul>
+    </li>
+    <li>
+      <a href="#">About</a>
+    </li>
+    <li>
+      <a href="#">Products</a>
+    </li>
+    <li>
+      <a href="#">Contact</a>
+    </li>
+  </ul>
+</nav>
+<article>
+  <h2>Headline</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo libero, congue id arcu eu, sollicitudin tincidunt risus. Donec quis lorem eget nulla hendrerit laoreet adipiscing vel arcu. Nam ullamcorper mauris a sapien imperdiet, sit amet venenatis nisl rutrum. Aenean sit amet sapien ac diam pretium vehicula. Nulla nec suscipit felis. Phasellus volutpat nisl et massa egestas, a eleifend neque aliquam. Aenean in sagittis erat. In vulputate dolor varius est feugiat pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque malesuada scelerisque sem ac placerat. Maecenas vel purus condimentum, imperdiet tortor et, aliquet arcu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse varius ultricies ligula. Nulla diam ligula, varius eu purus eget, ornare posuere diam.
+  </p>
+</article>
+
+
+
+
+<script type="text/javascript">
+  $('#menu').click(function(){
+  $('nav').toggleClass('is-expanded');
+});
+
+$('.has-subnav a').click(function(){
+  $(this).parent().toggleClass('is-expanded');
+  $('nav').toggleClass('is-subnav-expanded');
+});
+
+
+</script>
+</body>
+</html>
